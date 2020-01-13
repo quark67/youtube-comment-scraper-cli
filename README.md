@@ -36,6 +36,15 @@ It's part of the video URL: `https://www.youtube.com/watch?v=<VideoID>`.
 | https://www.youtube.com/watch?v=abc123def45 | abc123def12 |
 | https://youtu.be/abc123def45 | abc123def45 |
 
+**Nota:**
+
+If `<VideoID>` begins with a dash, if you use it directly, you will see an error message: error: `unknown option '-…'`, where `…` is the second character of `<VideoID>` after the dash `-`.
+
+Remark: the quotes around the `<VideoID>` are optional, and ineffective to suppress the error message in this case.
+
+To work around this behavior, please use before `<VideoID>` the double dash (`--`), which terminates the list of command-line options (according to the POSIX specification).
+
+So, if the video URL is `https://www.youtube.com/watch?v=-abc123def45`, it's `<VideoID>` is `-abc123def45`, and you will use this command line: `$ youtube-comment-scraper [options] -- -abc123def45`.
 
 ### Options
 
